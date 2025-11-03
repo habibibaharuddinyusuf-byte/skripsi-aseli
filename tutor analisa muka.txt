@@ -1,0 +1,441 @@
+# 📚 Panduan Lengkap 10 Kondisi Kulit Wajah
+
+Berikut penjelasan detail setiap kondisi beserta ciri-ciri visual untuk memudahkan pengelompokan dataset:
+
+---
+
+## 1. 🟢 **Healthy (Kulit Sehat)**
+
+### **Definisi:**
+Kulit wajah dalam kondisi normal tanpa masalah dermatologis signifikan.
+
+### **Ciri-ciri Visual:**
+- ✅ Warna kulit merata/uniform
+- ✅ Tekstur halus, tidak ada benjolan
+- ✅ Tidak ada kemerahan berlebihan
+- ✅ Tidak ada flek/bercak gelap
+- ✅ Pori-pori minimal/normal
+- ✅ Tidak ada scaling/pengelupasan
+- ✅ Tone kulit konsisten
+
+### **Karakteristik Foto:**
+- Pencahayaan merata tanpa bayangan penyakit
+- Tidak ada lesi atau abnormalitas
+- Kulit terlihat bersih dan segar
+
+### **Tips Identifikasi:**
+⚠️ Perhatikan: Kulit sehat bukan berarti "sempurna". Bisa ada sedikit pori-pori atau variasi tone natural, tapi tanpa kondisi patologis.
+
+---
+
+## 2. 🟡 **Acne Mild (Jerawat Ringan)**
+
+### **Definisi:**
+Jerawat tingkat ringan dengan komedo dan papula minimal.
+
+### **Ciri-ciri Visual:**
+- 🔴 **Komedo hitam (blackheads)**: Titik hitam kecil di pori-pori
+- 🔴 **Komedo putih (whiteheads)**: Benjolan putih kecil tertutup
+- 🔴 **Papula**: Benjolan merah kecil (<5mm), jumlah sedikit (1-10)
+- 🔴 **Pustula kecil**: Jerawat dengan nanah putih di puncak
+- ✅ Tidak ada nodul atau kista besar
+- ✅ Peradangan minimal
+
+### **Distribusi:**
+- Biasanya di T-zone (dahi, hidung, dagu)
+- Tersebar sporadis, tidak mengelompok
+
+### **Jumlah Lesi:** 
+1-20 jerawat aktif di seluruh wajah
+
+### **Karakteristik Foto:**
+- Jerawat terlihat sebagai titik-titik kecil
+- Tidak ada benjolan besar
+- Kulit sekitar relatif normal
+
+---
+
+## 3. 🔴 **Acne Severe (Jerawat Parah/Cystic)**
+
+### **Definisi:**
+Jerawat tingkat berat dengan nodul dalam dan kista yang meradang.
+
+### **Ciri-ciri Visual:** 
+- 🔴🔴 **Nodul**: Benjolan keras, besar (>5mm), merah, di bawah kulit
+- 🔴🔴 **Kista**: Benjolan besar berisi nanah, sangat meradang
+- 🔴🔴 **Peradangan hebat**: Area merah luas di sekitar jerawat
+- 🔴🔴 **Jerawat mengelompok**: Banyak lesi berdekatan
+- 🟤 **Scarring**: Bekas luka, hiperpigmentasi pasca-jerawat
+- 🔴 **Pustula besar**: Jerawat matang dengan nanah banyak
+
+### **Distribusi:**
+- Bisa di seluruh wajah
+- Sering mengelompok di pipi, rahang, dahi
+
+### **Jumlah Lesi:** 
+>20 jerawat aktif, banyak nodul/kista
+
+### **Karakteristik Foto:**
+- Tekstur kulit tidak rata, banyak relief
+- Warna merah mendominasi
+- Bayangan dari benjolan terlihat jelas
+- Sering ada bekas luka/hiperpigmentasi
+
+### **Pembeda dengan Mild:**
+| Mild | Severe |
+|------|--------|
+| Jerawat kecil (<5mm) | Benjolan besar (>5mm) |
+| Permukaan datar | Tekstur bergelombang |
+| Sedikit peradangan | Peradangan luas |
+| 1-20 lesi | >20 lesi + nodul |
+
+---
+
+## 4. 🟠 **Eczema (Eksim/Dermatitis Atopik)**
+
+### **Definisi:**
+Kondisi kulit inflamasi kronis dengan rasa gatal, kering, dan mengelupas.
+
+### **Ciri-ciri Visual:**
+- 🔴 **Kemerahan (erythema)**: Area merah tidak merata
+- ⚪ **Kulit kering dan bersisik**: Scaling, flaky appearance
+- 🟤 **Tekstur kasar**: Kulit menebal (lichenification)
+- 💧 **Weeping/oozing**: Area basah mengeluarkan cairan (fase akut)
+- 🟤 **Hyperpigmentation**: Bercak gelap pasca-inflamasi
+- 📍 **Patch tidak beraturan**: Batas tidak tegas
+
+### **Distribusi:**
+- Biasa di pipi, sekitar mata, dahi
+- Bisa di lipatan kulit (belakang telinga)
+- Area kering dan bersisik luas
+
+### **Tekstur:**
+- Kulit terlihat sangat kering
+- Seperti "buaya" atau "pecah-pecah"
+- Kadang ada krusta (koreng kering)
+
+### **Karakteristik Foto:**
+- Patch merah dengan sisik putih
+- Tekstur tidak halus
+- Batas lesi tidak jelas (diffuse)
+
+---
+
+## 5. 🌸 **Rosacea**
+
+### **Definisi:**
+Kondisi kulit kronis dengan kemerahan persisten, pembuluh darah terlihat, dan kadang jerawat-like bumps.
+
+### **Ciri-ciri Visual:**
+- 🔴🔴 **Kemerahan persisten**: Terutama di pipi, hidung, dahi, dagu
+- 🕷️ **Telangiectasia**: Pembuluh darah kecil terlihat (spider veins)
+- 🔴 **Flushing**: Area merah terang, seperti "blush" berlebihan
+- 🔴 **Papula & pustula**: Mirip jerawat tapi tanpa komedo
+- 👃 **Rhinophyma**: Hidung membesar dan bergelombang (stadium lanjut)
+- 🌡️ **Sensitif**: Kulit reaktif, mudah iritasi
+
+### **Distribusi:**
+- **Zona tengah wajah**: Pipi, hidung, dahi (butterfly pattern)
+- Jarang di area luar wajah
+
+### **Pola Kemerahan:**
+- Bilateral dan simetris
+- Kemerahan persisten (tidak hilang dalam beberapa jam)
+
+### **Karakteristik Foto:**
+- Pipi sangat merah/pink
+- Garis-garis halus pembuluh darah terlihat
+- Area merah simetris di kedua pipi
+
+### **Pembeda dengan Acne:**
+| Rosacea | Acne |
+|---------|------|
+| Kemerahan luas | Kemerahan lokal |
+| Ada telangiectasia | Tidak ada spider veins |
+| Tanpa komedo | Banyak komedo |
+| Zona tengah wajah | Bisa di mana saja |
+
+---
+
+## 6. 🟤 **Melasma (Hyperpigmentation)**
+
+### **Definisi:**
+Hiperpigmentasi kulit berupa bercak coklat/gelap, sering akibat hormonal atau paparan sinar matahari.
+
+### **Ciri-ciri Visual:**
+- 🟤🟤 **Bercak coklat/gelap**: Macule (datar, tidak raised)
+- 📍 **Batas jelas atau kabur**: Tergantung tipe
+- 🎨 **Warna**: Coklat muda hingga coklat tua
+- ✅ **Permukaan halus**: Tidak ada tekstur abnormal
+- 🦋 **Pola simetris**: Sering bilateral (kedua pipi)
+- ☀️ **Gelap setelah sun exposure**
+
+### **Distribusi:**
+- **Centrofacial**: Dahi, pipi, hidung, bibir atas
+- **Malar**: Kedua pipi dan hidung (butterfly pattern)
+- **Mandibular**: Rahang
+
+### **Tipe:**
+1. **Epidermal**: Coklat, batas jelas
+2. **Dermal**: Abu-abu kebiruan, batas kabur
+3. **Mixed**: Kombinasi
+
+### **Karakteristik Foto:**
+- Patch gelap kontras dengan kulit normal
+- Tidak ada relief/tekstur
+- Warna uniform dalam satu patch
+- Simetris di kedua sisi wajah
+
+---
+
+## 7. 🔴⚪ **Psoriasis**
+
+### **Definisi:**
+Penyakit autoimun dengan plak merah tebal bersisik putih keperakan.
+
+### **Ciri-ciri Visual:**
+- 🔴 **Plak merah tebal**: Raised, well-demarcated
+- ⚪⚪ **Sisik perak/putih**: Silver scales, tebal, berlapis
+- 📍 **Batas tegas (well-defined)**: Lesi dengan pinggiran jelas
+- 🩸 **Bleeding point**: Jika sisik diangkat, bisa berdarah titik-titik
+- 🟤 **Plak merah-pink**: Dengan coating sisik putih tebal
+
+### **Distribusi di Wajah:**
+- Garis rambut (hairline)
+- Sekitar alis
+- Lipatan hidung
+- Telinga (sering)
+
+### **Tekstur:**
+- Sangat tebal dan raised
+- Sisik berlapis seperti "mille-feuille"
+- Keras saat disentuh
+
+### **Karakteristik Foto:**
+- Plak merah dengan coating putih tebal
+- Batas sangat jelas (coin-like)
+- Relief tinggi (bayangan jelas)
+- Sisik tebal terlihat berlapis
+
+### **Pembeda dengan Eczema:**
+| Psoriasis | Eczema |
+|-----------|--------|
+| Sisik tebal perak | Sisik tipis halus |
+| Batas tegas | Batas kabur |
+| Plak raised | Relatif flat |
+| Merah terang | Merah kusam |
+
+---
+
+## 8. ⚪🟤 **Vitiligo**
+
+### **Definisi:**
+Hilangnya pigmen kulit (depigmentasi) akibat kerusakan melanosit, menghasilkan patch putih.
+
+### **Ciri-ciri Visual:**
+- ⚪⚪ **Patch putih/depigmentasi**: Kehilangan warna total
+- 📍 **Batas sangat tegas**: Kontras tajam dengan kulit normal
+- ✅ **Permukaan normal**: Tidak ada sisik/tekstur abnormal
+- 🎨 **Warna chalk-white**: Putih susu, kontras tinggi
+- 🟤 **Hyperpigmented border**: Kadang ada pinggiran gelap
+
+### **Distribusi:**
+- Perioral (sekitar mulut)
+- Periocular (sekitar mata)
+- Tangan dan wajah (area exposed)
+- Simetris atau tidak simetris
+
+### **Pola:**
+1. **Focal**: Satu/beberapa patch kecil
+2. **Segmental**: Satu sisi tubuh
+3. **Generalized**: Luas, simetris
+
+### **Karakteristik Foto:**
+- Patch putih mencolok
+- Kontras sangat tinggi dengan kulit normal
+- Tidak ada tekstur/relief
+- Batas seperti dipotong (sharp demarcation)
+
+---
+
+## 9. 🟡 **Seborrheic Dermatitis**
+
+### **Definisi:**
+Kondisi inflamasi kulit pada area berminyak dengan scaling kuning-kemerahan.
+
+### **Ciri-ciri Visual:**
+- 🟡 **Sisik kuning berminyak**: Greasy, yellowish scales
+- 🔴 **Kemerahan**: Erythema di area seboroik
+- 💧 **Kulit berminyak**: Shiny, oily appearance
+- 🟤 **Krusta kuning**: Kadang ada koreng kuning
+- 📍 **Batas tidak terlalu tegas**: Agak diffuse
+
+### **Distribusi:**
+- **Scalp** (ketombe parah)
+- **Alis**: Scaling di alis
+- **Lipatan hidung**: Nasolabial fold
+- **Telinga**: Di dalam dan belakang
+- **Dahi**: Hairline
+
+### **Tekstur:**
+- Sisik berminyak (bukan kering)
+- Warna kuning pucat hingga kuning-oranye
+- Greasy feeling
+
+### **Karakteristik Foto:**
+- Patch merah dengan sisik kuning
+- Area terlihat "shiny"/berminyak
+- Di zona T (dahi, hidung, alis)
+- Sisik menempel (tidak mudah rontok)
+
+### **Pembeda dengan Psoriasis:**
+| Seborrheic Dermatitis | Psoriasis |
+|-----------------------|-----------|
+| Sisik kuning, berminyak | Sisik putih perak, kering |
+| Batas agak kabur | Batas sangat tegas |
+| Area seboroik | Bisa di mana saja |
+| Sisik tipis-sedang | Sisik sangat tebal |
+
+---
+
+## 10. 🔴 **Contact Dermatitis**
+
+### **Definisi:**
+Reaksi alergi atau iritasi kulit akibat kontak dengan zat tertentu (kosmetik, sabun, logam, dll).
+
+### **Ciri-ciri Visual:**
+- 🔴 **Kemerahan akut**: Erythema di area kontak
+- 💧 **Vesikel/lepuh**: Gelembung kecil berisi cairan
+- 🔥 **Edema**: Bengkak di area terkena
+- 💦 **Weeping**: Mengeluarkan cairan jernih (fase akut)
+- 🟤 **Krusta**: Koreng kuning/coklat saat mengering
+- 📍 **Batas sesuai area kontak**: Pola sesuai paparan
+
+### **Distribusi:**
+- **Sesuai kontak**: Bisa berbentuk unik (misalnya: patch persegi dari kain)
+- Wajah: Kosmetik, parfum, perhiasan
+- Kelopak mata (eye shadow, mascara)
+- Pipi (hp, masker)
+
+### **Fase:**
+1. **Akut**: Merah, bengkak, vesikula
+2. **Subakut**: Merah, scaling, krusta
+3. **Kronis**: Kering, menebal, bersisik
+
+### **Karakteristik Foto:**
+- Pola geometric/tidak natural (sesuai kontak)
+- Kemerahan dengan edema
+- Kadang ada vesikula kecil-kecil
+- Batas sesuai area yang terpapar
+
+### **Pembeda dengan Eczema:**
+| Contact Dermatitis | Eczema |
+|--------------------|--------|
+| Batas sesuai kontak | Batas tidak spesifik |
+| Onset akut | Kronis/berulang |
+| Pola geometric | Pola natural |
+| Riwayat paparan jelas | Predisposisi atopi |
+
+---
+
+# 📊 Tabel Ringkasan Ciri-ciri Khas
+
+| **Kondisi** | **Warna Khas** | **Tekstur** | **Batas** | **Lokasi Khas** |
+|-------------|----------------|-------------|-----------|-----------------|
+| Healthy | Normal, merata | Halus | - | Seluruh wajah |
+| Acne Mild | Merah kecil | Papula kecil | Tidak jelas | T-zone |
+| Acne Severe | Merah+ungu | Nodul besar | Tidak jelas | Seluruh wajah |
+| Eczema | Merah kusam | Kering, sisik tipis | Kabur | Pipi, dahi |
+| Rosacea | Merah terang | Halus+telangiectasia | Diffuse | Pipi, hidung (tengah) |
+| Melasma | Coklat gelap | Halus (flat) | Jelas/kabur | Pipi, dahi (simetris) |
+| Psoriasis | Merah+sisik putih | Tebal, raised | Sangat tegas | Hairline, alis |
+| Vitiligo | Putih susu | Normal | Sangat tegas | Sekitar mulut/mata |
+| Seborrheic | Merah+kuning | Sisik berminyak | Agak kabur | T-zone, alis |
+| Contact Dermatitis | Merah akut | Bengkak, vesikula | Sesuai kontak | Bervariasi |
+
+---
+
+# 🎯 Flowchart Identifikasi Cepat
+
+```
+MULAI
+│
+├─ Ada PATCH PUTIH? ───────────────► VITILIGO
+│
+├─ Ada PATCH COKLAT GELAP FLAT? ───► MELASMA
+│
+├─ Ada JERAWAT/BUMPS?
+│  ├─ Kecil (<5mm), sedikit ────────► ACNE MILD
+│  ├─ Besar (>5mm), nodul ──────────► ACNE SEVERE
+│  └─ Di pipi merah + spider veins ─► ROSACEA
+│
+├─ Ada SISIK?
+│  ├─ Sisik PUTIH TEBAL ────────────► PSORIASIS
+│  ├─ Sisik KUNING BERMINYAK ───────► SEBORRHEIC DERMATITIS
+│  └─ Sisik tipis + kering ─────────► ECZEMA
+│
+├─ KEMERAHAN + BENGKAK akut? ──────► CONTACT DERMATITIS
+│
+└─ Tidak ada abnormalitas? ────────► HEALTHY
+```
+
+---
+
+# 💡 Tips Praktis untuk Pengelompokan Dataset
+
+## **Langkah-langkah:**
+
+### 1️⃣ **Buat Checklist Visual:**
+Untuk setiap foto, cek:
+- [ ] Ada jerawat? (ukuran & jumlah)
+- [ ] Ada kemerahan? (luas & pola)
+- [ ] Ada sisik? (warna & ketebalan)
+- [ ] Ada perubahan warna? (gelap/terang)
+- [ ] Tekstur kulit? (halus/kasar/raised)
+- [ ] Batas lesi? (tegas/kabur)
+
+### 2️⃣ **Prioritas Identifikasi:**
+1. **Vitiligo & Melasma** (paling mudah - warna kontras)
+2. **Psoriasis** (sisik putih tebal sangat khas)
+3. **Acne** (benjolan jelas)
+4. **Rosacea** (pipi merah + spider veins)
+5. **Eczema & Seborrheic** (perlu perhatian lokasi)
+6. **Contact Dermatitis** (butuh konteks/riwayat)
+
+### 3️⃣ **Gunakan Kombinasi Ciri:**
+Jangan andalkan satu ciri saja! Kombinasikan:
+- **Warna + Tekstur + Lokasi**
+
+Contoh:
+- Merah + Sisik tebal putih + Hairline = **Psoriasis**
+- Merah + Sisik kuning + T-zone = **Seborrheic Dermatitis**
+- Coklat + Flat + Pipi simetris = **Melasma**
+
+### 4️⃣ **Folder "Uncertain":**
+Buat folder khusus untuk foto yang sulit:
+- Mixed conditions
+- Kualitas foto buruk
+- Tidak jelas
+- Perlu second opinion
+
+---
+
+# 📸 Contoh Keyword untuk Search Reference Images:
+
+Jika butuh referensi visual, search dengan keyword:
+
+- "acne mild comedones papules"
+- "severe cystic acne nodules"
+- "atopic dermatitis face dry scaling"
+- "rosacea telangiectasia cheeks"
+- "melasma hyperpigmentation face"
+- "psoriasis plaques silver scales"
+- "vitiligo depigmentation patches"
+- "seborrheic dermatitis greasy scales"
+- "contact dermatitis acute vesicles"
+
+---
+
+Dengan panduan ini, Anda seharusnya bisa mengelompokkan dataset dengan lebih akurat! 🎯 
+
+Mau saya buatkan script Python untuk auto-clustering atau butuh bantuan lain? 😊
