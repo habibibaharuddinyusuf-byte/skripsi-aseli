@@ -1,0 +1,134 @@
+Baik! Berikut **tahapan membuat AI menggunakan CNN (Convolutional Neural Network)** secara umum — dari awal sampai model siap digunakan:
+
+---
+
+### 🧩 1. **Menentukan Tujuan dan Masalah**
+
+Langkah pertama adalah menentukan **apa yang ingin diselesaikan oleh AI**.
+Contoh:
+
+* Klasifikasi gambar (misalnya: mengenali kucing vs anjing)
+* Deteksi objek (misalnya: mendeteksi mobil di jalan)
+* Pengenalan wajah
+* Analisis citra medis, dsb.
+
+---
+
+### 🧹 2. **Mengumpulkan dan Menyiapkan Dataset**
+
+CNN membutuhkan banyak data gambar untuk belajar pola.
+
+Langkah-langkahnya:
+
+* **Kumpulkan data** (misal dari Kaggle, Google Dataset, atau hasil sendiri)
+* **Labeli data** sesuai kelas (misal: folder `cats/` dan `dogs/`)
+* **Pisahkan dataset** menjadi:
+
+  * Training set (misal 70%)
+  * Validation set (misal 15%)
+  * Test set (misal 15%)
+* **Preprocessing data:**
+
+  * Resize gambar ke ukuran seragam (misal 128×128)
+  * Normalisasi pixel (0–1)
+  * Data augmentation (rotasi, flip, dsb.) untuk menambah variasi
+
+---
+
+### 🧠 3. **Membangun Arsitektur CNN**
+
+CNN biasanya terdiri dari beberapa layer utama:
+
+* **Convolution Layer:** mengekstraksi fitur dari gambar (tepi, pola, bentuk)
+* **Pooling Layer:** mengecilkan ukuran fitur map (misal: MaxPooling)
+* **Flatten Layer:** mengubah hasil konvolusi menjadi vektor
+* **Fully Connected (Dense) Layer:** melakukan klasifikasi berdasarkan fitur
+* **Output Layer:** jumlah neuron = jumlah kelas
+
+Contoh sederhana (dengan Keras/PyTorch):
+
+```python
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+
+model = Sequential([
+    Conv2D(32, (3,3), activation='relu', input_shape=(128,128,3)),
+    MaxPooling2D(2,2),
+    Conv2D(64, (3,3), activation='relu'),
+    MaxPooling2D(2,2),
+    Flatten(),
+    Dense(128, activation='relu'),
+    Dense(2, activation='softmax')  # 2 kelas: kucing vs anjing
+])
+```
+
+---
+
+### ⚙️ 4. **Kompilasi Model**
+
+Menentukan cara model belajar:
+
+```python
+model.compile(optimizer='adam',
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
+```
+
+---
+
+### 🏋️ 5. **Melatih Model (Training)**
+
+Gunakan data latih untuk mengajarkan CNN mengenali pola:
+
+```python
+history = model.fit(train_data,
+                    validation_data=val_data,
+                    epochs=20,
+                    batch_size=32)
+```
+
+Selama training, model akan menyesuaikan bobot agar akurasi meningkat dan loss menurun.
+
+---
+
+### 📈 6. **Evaluasi Model**
+
+Gunakan data **test** untuk mengevaluasi performa model terhadap data baru.
+
+```python
+test_loss, test_acc = model.evaluate(test_data)
+print("Akurasi:", test_acc)
+```
+
+---
+
+### 🚀 7. **Menyimpan dan Menggunakan Model**
+
+Jika model sudah bagus:
+
+```python
+model.save("cnn_model.h5")
+```
+
+Untuk digunakan:
+
+```python
+from tensorflow.keras.models import load_model
+model = load_model("cnn_model.h5")
+prediction = model.predict(new_image)
+```
+
+---
+
+### 🔍 8. **(Opsional) Fine-tuning dan Optimisasi**
+
+Jika hasil belum maksimal:
+
+* Ubah arsitektur (tambah layer, ubah filter)
+* Gunakan **transfer learning** (misal: pakai VGG16, ResNet)
+* Tambahkan data latih atau augmentasi
+* Atur hyperparameter (learning rate, batch size, dll.)
+
+---
+
+Kalau kamu mau, saya bisa bantu buatkan **contoh kode lengkap CNN dari dataset (misal CIFAR-10 atau dataset kucing vs anjing)** — apakah kamu ingin contoh itu dalam **TensorFlow/Keras** atau **PyTorch**?
