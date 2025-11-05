@@ -24,7 +24,7 @@ import json
 from datetime import datetime
 import warnings
 warnings.filterwarnings('ignore')
-
+ 
 # TensorFlow dan Keras
 import tensorflow as tf
 from tensorflow import keras

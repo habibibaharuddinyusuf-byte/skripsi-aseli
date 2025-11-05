@@ -2,8 +2,8 @@ import os
 from PIL import Image
 
 # === Konfigurasi ===
-input_folder = "dataset/unaugmented/Seborrhoeic Dermatitis"     # Folder berisi gambar asli
-output_folder = "resized/Seborrhoeic Dermatitis"   # Folder hasil resize
+input_folder = "dataset/muka/redness"     # Folder berisi gambar asli
+output_folder = "resized/muka/redness"   # Folder hasil resize
 new_size = (128, 128)             # Ukuran baru (lebar, tinggi)
 
 # === Pastikan folder output ada ===

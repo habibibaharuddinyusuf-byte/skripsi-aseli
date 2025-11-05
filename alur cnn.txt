@@ -132,3 +132,4 @@ Jika hasil belum maksimal:
 ---
 
 Kalau kamu mau, saya bisa bantu buatkan **contoh kode lengkap CNN dari dataset (misal CIFAR-10 atau dataset kucing vs anjing)** — apakah kamu ingin contoh itu dalam **TensorFlow/Keras** atau **PyTorch**?
+

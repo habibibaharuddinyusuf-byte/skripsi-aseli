@@ -41,14 +41,14 @@ def get_ultra_conservative_transform():
         
         # Zoom/crop sedikit
         A.RandomResizedCrop(
-            height=224, 
-            width=224, 
+            height=128, 
+            width=128, 
             scale=(0.9, 1.0),  # Hanya zoom 90-100%
             p=0.5
         ),
         
         # Resize ke ukuran standard
-        A.Resize(224, 224),
+        A.Resize(128, 128),
     ])
     
     return transform
@@ -82,7 +82,7 @@ def get_conservative_transform():
         ),
         
         # Resize
-        A.Resize(224, 224),
+        A.Resize(128, 128),
     ])
     
     return transform
@@ -127,7 +127,7 @@ def get_moderate_transform():
         A.GaussNoise(var_limit=(5.0, 15.0), p=0.1),
         
         # Resize
-        A.Resize(224, 224),
+        A.Resize(128, 128),
     ])
     
     return transform
@@ -161,7 +161,7 @@ def augment_with_preview(image_path, num_samples=6, mode='conservative'):
     for idx, ax in enumerate(axes.flat):
         if idx == 0:
             # Original image
-            ax.imshow(cv2.resize(image, (224, 224)))
+            ax.imshow(cv2.resize(image, (128, 128)))
             ax.set_title('Original', fontsize=12, fontweight='bold')
         else:
             # Augmented images
@@ -173,7 +173,7 @@ def augment_with_preview(image_path, num_samples=6, mode='conservative'):
         ax.axis('off')
     
     plt.tight_layout()
-    plt.savefig('/mnt/user-data/outputs/augmentation_preview.png', dpi=150, bbox_inches='tight')
+    plt.savefig('augmentation_preview.png', dpi=150, bbox_inches='tight')
     print("✓ Preview saved to: augmentation_preview.png")
     plt.close()
 
@@ -234,7 +234,7 @@ def augment_medical_dataset(input_dir, output_dir, augmentations_per_image=3, mo
         # Save original
         original_path = os.path.join(output_dir, f"{base_name}_original.jpg")
         # Resize original to standard size
-        original_resized = cv2.resize(image, (224, 224))
+        original_resized = cv2.resize(image, (128, 128))
         cv2.imwrite(original_path, original_resized)
         
         # Generate augmented versions
@@ -272,7 +272,7 @@ def quality_check_comparison(original_path, augmented_dir, num_samples=5):
     # Load original
     original = cv2.imread(original_path)
     original = cv2.cvtColor(original, cv2.COLOR_BGR2RGB)
-    original = cv2.resize(original, (224, 224))
+    original = cv2.resize(original, (128, 128))
     
     # Get augmented versions
     base_name = os.path.splitext(os.path.basename(original_path))[0]
@@ -314,46 +314,52 @@ def quality_check_comparison(original_path, augmented_dir, num_samples=5):
 # MAIN - CONTOH PENGGUNAAN
 # ============================================
 if __name__ == "__main__":
-    print("=" * 70)
-    print("AUGMENTASI KONSERVATIF UNTUK GAMBAR MEDIS (PENYAKIT KULIT)")
-    print("=" * 70)
+    # print("=" * 70)
+    # print("AUGMENTASI KONSERVATIF UNTUK GAMBAR MEDIS (PENYAKIT KULIT)")
+    # print("=" * 70)
     
-    print("\n📋 PANDUAN MEMILIH MODE:\n")
+    # print("\n📋 PANDUAN MEMILIH MODE:\n")
     
-    print("1. ULTRA CONSERVATIVE (Paling Aman)")
-    print("   - Hanya rotasi & flip")
-    print("   - Tidak mengubah warna/lighting sama sekali")
-    print("   - Gunakan untuk: Penyakit dengan karakteristik warna penting")
-    print("   - Contoh: Melanoma, Rosacea, Vitiligo\n")
+    # print("1. ULTRA CONSERVATIVE (Paling Aman)")
+    # print("   - Hanya rotasi & flip")
+    # print("   - Tidak mengubah warna/lighting sama sekali")
+    # print("   - Gunakan untuk: Penyakit dengan karakteristik warna penting")
+    # print("   - Contoh: Melanoma, Rosacea, Vitiligo\n")
     
-    print("2. CONSERVATIVE (Recommended) ⭐")
-    print("   - Rotasi, flip, zoom ringan")
-    print("   - Brightness/contrast adjustment minimal (10%)")
-    print("   - Gunakan untuk: Kebanyakan kasus penyakit kulit")
-    print("   - Contoh: Acne, Eczema, Dermatitis\n")
+    # print("2. CONSERVATIVE (Recommended) ⭐")
+    # print("   - Rotasi, flip, zoom ringan")
+    # print("   - Brightness/contrast adjustment minimal (10%)")
+    # print("   - Gunakan untuk: Kebanyakan kasus penyakit kulit")
+    # print("   - Contoh: Acne, Eczema, Dermatitis\n")
     
-    print("3. MODERATE (Hati-hati)")
-    print("   - Transformasi lebih agresif")
-    print("   - Slight color adjustment")
-    print("   - Gunakan untuk: Dataset dengan lighting bervariasi")
-    print("   - ⚠️  Wajib manual review hasil!\n")
+    # print("3. MODERATE (Hati-hati)")
+    # print("   - Transformasi lebih agresif")
+    # print("   - Slight color adjustment")
+    # print("   - Gunakan untuk: Dataset dengan lighting bervariasi")
+    # print("   - ⚠️  Wajib manual review hasil!\n")
     
-    print("=" * 70)
-    print("\n💡 CONTOH PENGGUNAAN:\n")
+    # print("=" * 70)
+    # print("\n💡 CONTOH PENGGUNAAN:\n")
     
     print("# 1. Augmentasi dengan mode conservative (recommended)")
-    print("augment_medical_dataset(")
-    print("    input_dir='data/original/',")
-    print("    output_dir='data/augmented/',")
-    print("    augmentations_per_image=3,")
-    print("    mode='conservative'")
-    print(")\n")
+    augment_medical_dataset(
+        input_dir='./resized/muka/bags',
+        output_dir='./UC-aug/muka/bags',
+        augmentations_per_image=15, 
+        mode='conservative'
+    )
+    augment_medical_dataset(
+        input_dir='./resized/muka/redness',
+        output_dir='./UC-aug/muka/redness',
+        augmentations_per_image=15, 
+        mode='conservative'
+    )
     
     print("# 2. Preview augmentation sebelum apply ke semua")
-    print("augment_with_preview('sample_image.jpg', mode='conservative')\n")
+    # augment_with_preview('./resized/muka/acne/1.jpg', mode='conservative')
     
     print("# 3. Quality check hasil augmentasi")
-    print("quality_check_comparison('original.jpg', 'data/augmented/', num_samples=5)")
+    # quality_check_comparison('./resized/muka/acne/1.jpg', 'UC-aug/muka/acne', num_samples=5)
     
     print("\n" + "=" * 70)
     print("⚠️  CHECKLIST SEBELUM TRAINING:")
