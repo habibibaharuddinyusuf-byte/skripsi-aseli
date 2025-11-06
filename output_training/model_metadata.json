@@ -1,0 +1,34 @@
+{
+  "model_name": "MobileNetV2_SkinClassifier",
+  "base_model": "MobileNetV2",
+  "num_classes": 5,
+  "class_names": [
+    "Eczemea",
+    "Melasma",
+    "Rosacea",
+    "Seborrhoeic Dermatitis",
+    "Vitiligo"
+  ],
+  "img_size": [
+    224,
+    224
+  ],
+  "training_date": "2025-11-04 15:59:38",
+  "total_samples": 605,
+  "train_samples": 423,
+  "val_samples": 121,
+  "test_samples": 61,
+  "test_accuracy": 0.16393442451953888,
+  "test_precision": 0.0,
+  "test_recall": 0.0,
+  "test_f1": 0.13713495156772657,
+  "test_auc": 0.4416487514972687,
+  "hyperparameters": {
+    "batch_size": 32,
+    "epochs": 50,
+    "learning_rate": 0.0001,
+    "use_augmentation": true,
+    "augmentation_strength": "medium",
+    "fine_tune": true
+  }
+}
