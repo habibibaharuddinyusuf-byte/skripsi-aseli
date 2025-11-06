@@ -1,0 +1,31 @@
+{
+  "model_type": "ImprovedSkinClassifier",
+  "base_model": "MobileNetV2",
+  "img_size": [
+    128,
+    128
+  ],
+  "num_classes": 3,
+  "class_names": [
+    "acne",
+    "bags",
+    "redness"
+  ],
+  "total_samples": 480,
+  "train_samples": 384,
+  "test_samples": 96,
+  "test_accuracy": 1.0,
+  "kfold_enabled": true,
+  "n_folds": 5,
+  "fold_accuracies": [
+    0.9870129823684692,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "tta_enabled": true,
+  "heavy_augmentation": false,
+  "augmentation_factor": 15,
+  "training_date": "2025-11-05 15:46:12"
+}

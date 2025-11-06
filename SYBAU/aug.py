@@ -1,0 +1,299 @@
+"""
+Data Augmentation untuk Dataset Penyakit Kulit Wajah
+Contoh implementasi menggunakan beberapa library populer
+"""
+
+# ============================================
+# 1. MENGGUNAKAN KERAS/TENSORFLOW
+# ============================================
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+import numpy as np
+from PIL import Image
+
+def augmentation_keras():
+    """Augmentation menggunakan Keras ImageDataGenerator"""
+    
+    # Konfigurasi augmentation
+    datagen = ImageDataGenerator(
+        rotation_range=20,           # Rotasi max 20 derajat
+        width_shift_range=0.1,       # Geser horizontal 10%
+        height_shift_range=0.1,      # Geser vertikal 10%
+        shear_range=0.1,            # Shear transformation
+        zoom_range=0.15,            # Zoom in/out 15%
+        horizontal_flip=True,        # Flip horizontal
+        brightness_range=[0.8, 1.2], # Ubah brightness 80-120%
+        fill_mode='nearest'          # Isi pixel kosong
+    )
+    
+    # Load gambar contoh
+    # img = Image.open('path/to/skin_image.jpg')
+    # img = Image.open('dataset/Melasma/3130.jpg')
+    # img = np.array(img)
+    # img = img.reshape((1,) + img.shape)  # Reshape untuk batch
+    
+    # Generate augmented images
+    # i = 0
+    # for batch in datagen.flow(img, batch_size=1, save_to_dir='output', 
+    #                           save_prefix='aug', save_format='jpg'):
+    #     i += 1
+    #     if i > 10:  # Generate 10 gambar
+    #         break
+    
+    return datagen
+
+
+# ============================================
+# 2. MENGGUNAKAN ALBUMENTATIONS (Recommended!)
+# ============================================
+import albumentations as A
+import cv2
+
+def augmentation_albumentations():
+    """Augmentation menggunakan Albumentations - lebih canggih dan cepat"""
+    
+    # Pipeline augmentation untuk medical images
+    transform = A.Compose([
+        # Transformasi geometris
+        A.Rotate(limit=15, p=0.5),                    # Rotasi -15 sampai +15 derajat
+        A.HorizontalFlip(p=0.5),                      # Flip horizontal 50% kemungkinan
+        A.ShiftScaleRotate(
+            shift_limit=0.1,                          # Geser 10%
+            scale_limit=0.15,                         # Scale 15%
+            rotate_limit=15,                          # Rotasi 15 derajat
+            p=0.5
+        ),
+        
+        # Transformasi warna/lighting (hati-hati untuk medical images!)
+        A.RandomBrightnessContrast(
+            brightness_limit=0.2,                     # Brightness +/- 20%
+            contrast_limit=0.2,                       # Contrast +/- 20%
+            p=0.5
+        ),
+        A.HueSaturationValue(
+            hue_shift_limit=10,                       # Ubah hue sedikit saja
+            sat_shift_limit=15,                       # Saturasi 15%
+            val_shift_limit=10,                       # Value 10%
+            p=0.3
+        ),
+        
+        # Noise dan blur
+        A.GaussNoise(var_limit=(10.0, 50.0), p=0.2), # Tambah noise
+        A.GaussianBlur(blur_limit=3, p=0.2),         # Blur sedikit
+        
+        # Optical distortion
+        A.OpticalDistortion(distort_limit=0.1, p=0.2),
+        
+        # Resize ke ukuran yang diinginkan
+        A.Resize(224, 224),
+    ])
+    
+    return transform
+
+
+def apply_augmentation_albumentations(image_path, output_dir, num_augmented=10):
+    """
+    Terapkan augmentation pada satu gambar dan simpan hasilnya
+    
+    Args:
+        image_path: Path ke gambar asli
+        output_dir: Folder untuk menyimpan hasil
+        num_augmented: Jumlah gambar augmented yang ingin dibuat
+    """
+    import os
+    
+    # Buat folder output jika belum ada
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Load gambar
+    image = cv2.imread(image_path)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    
+    # Dapatkan transform pipeline
+    transform = augmentation_albumentations()
+    
+    # Generate augmented images
+    base_name = os.path.splitext(os.path.basename(image_path))[0]
+    
+    for i in range(num_augmented):
+        # Aplikasikan augmentation
+        augmented = transform(image=image)
+        aug_image = augmented['image']
+        
+        # Simpan
+        output_path = os.path.join(output_dir, f"{base_name}_aug_{i}.jpg")
+        aug_image_bgr = cv2.cvtColor(aug_image, cv2.COLOR_RGB2BGR)
+        cv2.savetxt(output_path, aug_image_bgr)
+        
+    print(f"✓ Generated {num_augmented} augmented images in {output_dir}")
+
+
+# ============================================
+# 3. AUGMENTATION UNTUK ENTIRE DATASET
+# ============================================
+def augment_dataset(input_dir, output_dir, augmentations_per_image=5):
+    """
+    Augmentasi seluruh folder dataset
+    
+    Args:
+        input_dir: Folder berisi gambar original
+        output_dir: Folder untuk menyimpan hasil augmentasi
+        augmentations_per_image: Jumlah variasi per gambar
+    """
+    import os
+    from glob import glob
+    
+    # Buat folder output
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Dapatkan transform
+    transform = augmentation_albumentations()
+    
+    # Dapatkan semua file gambar
+    image_files = glob(os.path.join(input_dir, "*.jpg")) + \
+                  glob(os.path.join(input_dir, "*.png")) + \
+                  glob(os.path.join(input_dir, "*.jpeg"))
+    
+    print(f"Found {len(image_files)} images to augment...")
+    
+    for img_path in image_files:
+        # Load gambar
+        image = cv2.imread(img_path)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        
+        base_name = os.path.splitext(os.path.basename(img_path))[0]
+        
+        # Copy gambar original
+        output_path = os.path.join(output_dir, f"{base_name}_original.jpg")
+        cv2.imwrite(output_path, cv2.cvtColor(image, cv2.COLOR_RGB2BGR))
+        
+        # Generate augmented versions
+        for i in range(augmentations_per_image):
+            augmented = transform(image=image)
+            aug_image = augmented['image']
+            
+            output_path = os.path.join(output_dir, f"{base_name}_aug_{i}.jpg")
+            cv2.imwrite(output_path, cv2.cvtColor(aug_image, cv2.COLOR_RGB2BGR))
+        
+        print(f"✓ Processed: {base_name}")
+    
+    total_images = len(image_files) * (augmentations_per_image + 1)
+    print(f"\n✓ Done! Total images: {total_images}")
+
+
+# ============================================
+# 4. AUGMENTATION KHUSUS UNTUK MEDICAL IMAGES
+# ============================================
+def medical_image_augmentation():
+    """
+    Augmentation yang aman untuk gambar medis
+    Hindari transformasi yang bisa mengubah karakteristik penyakit
+    """
+    
+    transform = A.Compose([
+        # Hanya transformasi geometris ringan
+        A.Rotate(limit=10, p=0.5),
+        A.HorizontalFlip(p=0.5),
+        A.ShiftScaleRotate(
+            shift_limit=0.05,
+            scale_limit=0.1,
+            rotate_limit=10,
+            p=0.5
+        ),
+        
+        # Brightness/contrast sangat konservatif
+        A.RandomBrightnessContrast(
+            brightness_limit=0.1,
+            contrast_limit=0.1,
+            p=0.3
+        ),
+        
+        # Resize
+        A.Resize(224, 224),
+    ])
+    
+    return transform
+
+
+# ============================================
+# 5. CONTOH PENGGUNAAN DENGAN PYTORCH
+# ============================================
+import torch
+from torch.utils.data import Dataset, DataLoader
+from torchvision import transforms
+
+class SkinDiseaseDataset(Dataset):
+    """Custom Dataset dengan augmentation untuk PyTorch"""
+    
+    def __init__(self, image_paths, labels, transform=None, augment=True):
+        self.image_paths = image_paths
+        self.labels = labels
+        self.augment = augment
+        
+        if augment:
+            # Augmentation untuk training
+            self.transform = transforms.Compose([
+                transforms.RandomRotation(15),
+                transforms.RandomHorizontalFlip(),
+                transforms.RandomResizedCrop(224, scale=(0.8, 1.0)),
+                transforms.ColorJitter(brightness=0.2, contrast=0.2),
+                transforms.ToTensor(),
+                transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                   std=[0.229, 0.224, 0.225])
+            ])
+        else:
+            # Tanpa augmentation untuk validation/test
+            self.transform = transforms.Compose([
+                transforms.Resize(256),
+                transforms.CenterCrop(224),
+                transforms.ToTensor(),
+                transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                   std=[0.229, 0.224, 0.225])
+            ])
+    
+    def __len__(self):
+        return len(self.image_paths)
+    
+    def __getitem__(self, idx):
+        image = Image.open(self.image_paths[idx]).convert('RGB')
+        label = self.labels[idx]
+        
+        if self.transform:
+            image = self.transform(image)
+        
+        return image, label
+
+
+# ============================================
+# MAIN - CONTOH PENGGUNAAN
+# ============================================
+if __name__ == "__main__":
+    # print("=" * 60)
+    # print("DATA AUGMENTATION UNTUK PENYAKIT KULIT")
+    # print("=" * 60)
+    
+    # Contoh 1: Augmentasi satu gambar
+    # print("\n1. Augmentasi single image:")
+    # print("   apply_augmentation_albumentations('path/to/image.jpg', 'output/', 10)")
+    
+    # Contoh 2: Augmentasi seluruh dataset
+    # print("\n2. Augmentasi entire dataset:")
+    # print("   augment_dataset('input_folder/', 'output_folder/', 5)")
+    
+    augment_dataset('dataset/unaugmented/Eczemea', 'dataset/augmented/Eczemea', 10)
+    augment_dataset('dataset/unaugmented/Melasma', 'dataset/augmented/Melasma', 10)
+    augment_dataset('dataset/unaugmented/Rosacea', 'dataset/augmented/Rosacea', 10)
+    augment_dataset('dataset/unaugmented/Seborrhoeic Dermatitis', 'dataset/augmented/Seborrhoeic Dermatitis', 10)
+    augment_dataset('dataset/unaugmented/Vitiligo', 'dataset/augmented/Vitiligo', 10)
+    
+    # Contoh 3: Gunakan dengan PyTorch DataLoader
+    # print("\n3. Integrasi dengan PyTorch:")
+    # print("   dataset = SkinDiseaseDataset(image_paths, labels, augment=True)")
+    # print("   dataloader = DataLoader(dataset, batch_size=32, shuffle=True)")
+    
+    # print("\n" + "=" * 60)
+    # print("TIPS:")
+    # print("- Install library: pip install albumentations opencv-python pillow")
+    # print("- Untuk medical images, gunakan augmentation konservatif")
+    # print("- Test augmentation dulu, pastikan tidak mengubah karakteristik penyakit")
+    # print("- Gunakan augmentation hanya untuk training set, bukan validation/test")
+    # print("=" * 60)

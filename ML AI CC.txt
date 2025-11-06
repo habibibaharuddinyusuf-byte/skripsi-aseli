@@ -1,0 +1,290 @@
+Oke, gue bikinin crash course ML/AI yang simpel tapi lengkap. Anggap aja ini roadmap belajar dari nol sampe bisa bikin model sendiri.
+
+## 🚀 Crash Course ML/AI - From Zero to Hero
+
+### **1. Fondasi Dasar (Minggu 1-2)**
+
+**Matematika yang lu butuhin:**
+- **Linear Algebra** - Matriks, vektor, operasi dasar. Ini penting banget karena semua data di ML itu bentuknya matriks
+- **Kalkulus** - Derivative (turunan) buat optimasi model. Pas model belajar, dia nyari nilai terbaik pake turunan
+- **Probability & Statistics** - Distribusi, mean, variance. ML itu main-main sama probabilitas
+- **Python** - Bahasa wajib. Pelajarin NumPy, Pandas, Matplotlib
+
+### **2. Machine Learning Dasar (Minggu 3-6)**
+
+**Konsep inti yang harus lu paham:**
+
+**Dataset** = Kumpulan data buat ngajarin model. Dibagi 3:
+- Training set (70-80%) → buat ngajarin
+- Validation set (10-15%) → buat tuning
+- Test set (10-15%) → buat tes akhir
+
+**Feature** = Kolom/atribut dalam data (misal: umur, tinggi, berat)
+**Label** = Jawaban yang mau diprediksi (misal: harga rumah, penyakit)
+
+**Dua tipe utama ML:**
+
+**Supervised Learning** (Ada guru)
+- Lu punya data + jawaban
+- Model belajar dari contoh
+- Contoh: klasifikasi email spam/bukan spam
+
+**Unsupervised Learning** (Nggak ada guru)
+- Cuma punya data, nggak ada jawaban
+- Model cari pola sendiri
+- Contoh: grouping customer berdasarkan perilaku
+
+### **3. Algoritma Klasik (Minggu 7-10)**
+
+**Mulai dari yang simple:**
+
+**Linear Regression** 
+- Prediksi angka kontinyu (harga, suhu)
+- Bikin garis lurus yang pas sama data
+- Gampang dipahami, bagus buat mulai
+
+**Logistic Regression**
+- Klasifikasi biner (yes/no, 0/1)
+- Output-nya probabilitas (0-100%)
+
+**Decision Tree**
+- Kayak diagram keputusan
+- Gampang divisualisasi dan dipahami
+
+**Random Forest**
+- Banyak decision tree digabung
+- Lebih akurat tapi lebih lambat
+
+**K-Nearest Neighbors (KNN)**
+- Prediksi based on tetangga terdekat
+- Simple tapi efektif
+
+**Support Vector Machine (SVM)**
+- Cari garis pemisah terbaik antar kelas
+- Bagus buat klasifikasi
+
+### **4. Istilah-Istilah Penting**
+
+**Model** = Otak AI yang udah dilatih. Kayak formula matematika kompleks yang bisa prediksi
+
+**Training** = Proses ngajarin model pake data. Model nyoba-nyoba sampe bener
+
+**Overfitting** = Model terlalu hafal data training, jadi gagal pas ketemu data baru
+- Kayak kamu hafal soal ujian tapi nggak paham konsepnya
+- Solusi: regularization, more data, dropout
+
+**Underfitting** = Model terlalu simple, nggak nangkep pola dalam data
+- Kayak belajar cuma 10 menit buat ujian
+- Solusi: model lebih kompleks, more features
+
+**Hyperparameter** = Setting model yang lu atur sendiri (learning rate, jumlah layer)
+
+**Loss Function** = Ukuran seberapa salah prediksi model. Makin kecil makin bagus
+
+**Optimization** = Proses ngurangin loss. Biasanya pake Gradient Descent
+
+**Gradient Descent** = Algoritma buat nyari nilai terbaik
+- Kayak turun gunung sambil cari titik terendah
+- Jalan dikit-dikit ngikutin kemiringan
+
+**Epoch** = Satu kali model liat seluruh data training
+
+**Batch Size** = Berapa data yang diproses sekaligus
+
+**Learning Rate** = Seberapa cepat model belajar
+- Terlalu besar → loncat-loncat, nggak ketemu
+- Terlalu kecil → lama banget
+
+### **5. Deep Learning (Minggu 11-16)**
+
+**Neural Network** = Model yang mirip otak manusia
+- Terdiri dari layers (lapisan)
+- Tiap layer punya neurons
+- Data masuk → proses di hidden layers → output
+
+**Arsitektur Neural Network:**
+
+**Input Layer** → nerima data mentah
+**Hidden Layers** → proses data (bisa banyak layer)
+**Output Layer** → hasil prediksi
+
+**Activation Function** = Fungsi yang bikin neural network bisa belajar pola kompleks
+- ReLU (paling populer)
+- Sigmoid
+- Tanh
+
+**Backpropagation** = Cara neural network belajar
+- Hitung error di output
+- Balik ke belakang sambil update weight
+- Pake chain rule dari kalkulus
+
+**CNN (Convolutional Neural Network)**
+- Spesialis buat image/video
+- Layer convolution buat extract features
+- Use case: face recognition, object detection
+
+**RNN (Recurrent Neural Network)**
+- Buat data sequential (text, time series)
+- Punya "memory" dari data sebelumnya
+
+**LSTM (Long Short-Term Memory)**
+- Versi upgrade RNN
+- Bisa ingat informasi jangka panjang
+
+**Transformer**
+- Arsitektur modern buat NLP
+- Dasar dari GPT, BERT, ChatGPT
+- Pake attention mechanism
+
+### **6. Deep Learning Frameworks**
+
+**TensorFlow/Keras** (by Google)
+- Lengkap, production-ready
+- Keras = high-level API yang gampang
+
+**PyTorch** (by Meta)
+- More flexible, pythonic
+- Favorit researcher
+- Gue recommend mulai dari ini
+
+**Contoh simple PyTorch:**
+```python
+import torch
+import torch.nn as nn
+
+# Bikin model
+class SimpleNet(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.fc1 = nn.Linear(10, 50)  # Input 10, output 50
+        self.fc2 = nn.Linear(50, 2)   # Output 2 kelas
+    
+    def forward(self, x):
+        x = torch.relu(self.fc1(x))
+        x = self.fc2(x)
+        return x
+```
+
+### **7. Computer Vision (CV)**
+
+**Image Classification** - Apa isi gambar ini?
+**Object Detection** - Dimana objeknya? (YOLO, R-CNN)
+**Segmentation** - Pisahin objek per pixel
+**Face Recognition** - Siapa orangnya?
+
+**Transfer Learning** - Pake model yang udah dilatih (ResNet, VGG, EfficientNet)
+- Lu tinggal fine-tune aja
+- Hemat waktu & data
+
+### **8. Natural Language Processing (NLP)**
+
+**Text Classification** - Sentiment analysis, spam detection
+**Named Entity Recognition** - Ekstrak nama, lokasi, tanggal
+**Machine Translation** - Translate bahasa
+**Text Generation** - Bikin text (kayak ChatGPT)
+
+**Word Embeddings** - Representasi kata jadi vektor
+- Word2Vec
+- GloVe
+- BERT embeddings
+
+**LLM (Large Language Models)**
+- GPT (Generative Pre-trained Transformer)
+- BERT (Bidirectional Encoder)
+- T5, LLaMA, dll
+
+### **9. Model Evaluation**
+
+**Buat Classification:**
+- **Accuracy** - Berapa persen bener total
+- **Precision** - Dari yang diprediksi positif, berapa yang bener positif
+- **Recall** - Dari semua yang positif, berapa yang ketangkep
+- **F1 Score** - Harmonic mean precision & recall
+- **Confusion Matrix** - Tabel buat liat true/false positive/negative
+
+**Buat Regression:**
+- **MAE** (Mean Absolute Error) - Rata-rata selisih
+- **MSE** (Mean Squared Error) - Rata-rata kuadrat selisih
+- **RMSE** (Root MSE) - Akar dari MSE
+- **R² Score** - Seberapa bagus model jelasin variance
+
+### **10. Tips Praktis & Best Practices**
+
+**Data Preprocessing:**
+- Normalization/Standardization - Bikin skala data sama
+- Handle missing values - Isi/buang data kosong
+- Encoding categorical - Ubah kategori jadi angka
+- Data augmentation - Bikin variasi data (flip, rotate image)
+
+**Avoid Overfitting:**
+- Regularization (L1, L2) - Penalty buat weight gede
+- Dropout - Random matiin neuron pas training
+- Early stopping - Stop pas validation loss naik
+- More data - Self explanatory
+
+**Model Training Tips:**
+- Start simple, gradually complex
+- Monitor training & validation loss
+- Use callbacks (learning rate scheduler)
+- Save best model weights
+
+### **11. Roadmap Belajar Praktis**
+
+**Level 1: Beginner (2-3 bulan)**
+1. Python fundamentals
+2. NumPy, Pandas dasar
+3. Scikit-learn untuk ML klasik
+4. Bikin 3-5 project simple
+
+**Level 2: Intermediate (3-4 bulan)**
+1. Neural network basics
+2. PyTorch/TensorFlow
+3. CNN untuk image
+4. RNN untuk text
+5. Deploy model simple (Flask/FastAPI)
+
+**Level 3: Advanced (6+ bulan)**
+1. Advanced architectures (Transformer, BERT, GPT)
+2. Model optimization (pruning, quantization)
+3. MLOps (Docker, Kubernetes)
+4. Deploy production-ready models
+5. Contribute ke open source
+
+### **12. Resources Rekomendasi**
+
+**Courses:**
+- Andrew Ng - Machine Learning (Coursera)
+- Fast.ai - Practical Deep Learning
+- DeepLearning.AI - Deep Learning Specialization
+
+**Books:**
+- "Hands-On Machine Learning" - Aurélien Géron
+- "Deep Learning" - Goodfellow, Bengio, Courville
+
+**Practice:**
+- Kaggle - Competition & datasets
+- Google Colab - Free GPU
+- Hugging Face - Pre-trained models
+
+### **13. Project Ideas Buat Portfolio**
+
+**Beginner:**
+- House price prediction
+- Iris flower classification
+- Titanic survival prediction
+
+**Intermediate:**
+- Image classifier (cats vs dogs)
+- Sentiment analysis Twitter
+- Movie recommendation system
+
+**Advanced:**
+- Object detection app
+- Chatbot pake LLM
+- AI art generator
+
+---
+
+**Bottom line:** ML/AI itu journey panjang. Jangan overwhelm. Mulai dari dasar, praktek terus, bikin project. Yang penting konsisten 1-2 jam sehari daripada belajar 12 jam sekali terus berhenti.
+
+Lu mau gue jelasin bagian spesifik lebih detail? Atau mau tau cara mulai praktek langsung?
