@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Scanner - Analisis Kesehatan</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Camera Modal -->
+    <div class="camera-modal" id="cameraModal">
+        <div class="camera-container">
+            <video id="cameraVideo" autoplay playsinline></video>
+            <button class="close-camera" id="closeCameraBtn">×</button>
+            <div class="camera-controls">
+                <button class="camera-btn" id="switchCameraBtn" title="Ganti Kamera">🔄</button>
+                <button class="camera-btn capture" id="captureBtn" title="Ambil Foto">📸</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>
+                <span class="icon">🏥</span>
+                Medical Scanner
+            </h1>
+            <p>Upload atau ambil foto untuk analisis kesehatan</p>
+        </div>
+
+        <div class="api-config">
+            <label for="apiUrl">🔗 API Endpoint URL:</label>
+            <input type="text" id="apiUrl" placeholder="https://api.example.com/analyze" value="">
+        </div>
+
+        <div class="upload-area" id="uploadArea">
+            <div class="upload-icon">📸</div>
+            <h3>Pilih atau Ambil Foto</h3>
+            <p>Klik untuk memilih file atau drag & drop foto Anda di sini</p>
+        </div>
+
+        <input type="file" id="fileInput" accept="image/*">
+        <input type="file" id="cameraInput" accept="image/*" capture="environment">
+
+        <div class="button-group">
+            <button class="btn btn-secondary" id="galleryBtn">
+                📁 Pilih dari Galeri
+            </button>
+            <button class="btn btn-secondary" id="cameraBtn">
+                📷 Ambil Foto
+            </button>
+        </div>
+
+        <div class="preview-area" id="previewArea">
+            <img id="previewImage" class="preview-image" alt="Preview">
+            <button class="btn btn-primary" id="analyzeBtn">
+                🔍 Analisis Foto
+            </button>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Sedang menganalisis foto...</p>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+
+        <div class="result-area" id="resultArea">
+            <div class="result-header">
+                <span style="font-size: 24px;">✅</span>
+                <h3>Hasil Analisis</h3>
+            </div>
+            <div class="result-content" id="resultContent"></div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
